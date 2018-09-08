@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<title>EmailExtracer</title>
+<body>
+
+<h2>EmailExtracer</h2>
+
+<p>Enter your text in the box below:</p>
+Case notes:<br/>
+<textarea id="myTextarea" rows="10" cols="30">Enter your 
+notes here</textarea>
+<br/>
+<br/>
+<button type="button" onclick="extractemails()">Get emails</button>
+<br/>
+<hr/>
+<br/>
+
+<p id="p01">"Your entered message"</p>
+<br/>
+<hr/>
+<br/>
+<h2>Emails in the message:</h2>
+
+<p id="demo"></p>
+
+<script>
+//$('.sb').click( function() {
+  //  var myvar=document.querySelector('[name="formdata1"]').value;
+    //window.alert("Variable value: " + myvar);
+//});
+function extractemails()
+{
+//var form = new FormData(document.getElementById("form"));
+//<button onclick="extractemails()">Extract</button>
+//****
+//var form = new FormData(document.getElementById("form1"));
+//**
+//var formElements = document.forms['message'].elements['inputTypeName'].value;
+//********
+//var form = new FormData(document.getElementById("form"));
+//var inputValue = form.get("inputTypeName");
+//<form id="form">
+//<input name="inputTypeName">
+//</form>
+//********
+//document.forms["myForm"]["firstname"].value;//this works
+//******
+var x = document.getElementById("myTextarea").value;
+document.getElementById("p01").innerHTML = x;
+//document.getElementById("p01").innerHTML; 
+var1 = x.match(/([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9._-]+)/gi);
+var text = "<ul>";
+for (i in var1){
+text=text+"* "+var1[i]+"<br/>";
+}
+text=text+"</ul>";
+document.getElementById("demo").innerHTML = text;
+}
+</script>
+
+</body>
+</html>
